@@ -43,8 +43,8 @@ function render (res, next, path) {
 	});
 }
 
-function renderAdmin (req, res, next) { render( res, next, '/admin/plugins/custom-header' ) }
-function renderFront (req, res, next) { render( res, next, '/plugins/custom-header' ) }
+function renderAdmin (req, res, next) { render( res, next, 'admin/plugins/custom-header' ) }
+function renderFront (req, res, next) { render( res, next, 'plugins/custom-header' ) }
 
 function save (req, res, next) {
 
