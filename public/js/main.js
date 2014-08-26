@@ -14,8 +14,10 @@
         		$.each(data.images, function(key, data){
         			images.push(data.image);
         		});
-        		randomImage();
-        		displayImage(data.selector);
+        		if (images.length > 0 && data.selector.length > 0) {
+	        		randomImage();
+	        		displayImage(data.selector);        			
+        		}
 	}
 
 	function randomImage() {
@@ -29,7 +31,15 @@
 		header = 'url('+header+')';
 
 		if (old !== header) {
-			bg.css('background-image',header);	
+			$('<div>').addClass('crossfade').prependTo(bg).css({
+				'display': 'block',
+				'width': '100%',
+				'height': '100%',
+				'position': 'absolute',
+				'top': '0',
+				'background-image':old
+			}).fadeOut(1000);
+			bg.css('background-image',header);
 		}
 	}
 }());

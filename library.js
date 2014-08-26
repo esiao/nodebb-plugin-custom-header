@@ -28,9 +28,16 @@ function render (res, next, path) {
 
 	db.getObject('plugins:custom-header', function(err, data) {
 		if (err) return next(err);
-		data = {
-			images: JSON.parse(data.images),
-			selector: data.selector
+		if (data) {
+			data = {
+				images: JSON.parse(data.images),
+				selector: data.selector
+			}			
+		} else {
+			data = {
+				images: [],
+				selector: ''
+			}	
 		}
 		res.render(path, data);
 	});
