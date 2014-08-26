@@ -65,13 +65,9 @@
         });
     }
     function saveConfiguration() {
-        var imagesList = [];
-        $('#images .well form input').each(function () {
-            var image = $(this).val();
-            imagesList.push({
-                image: image
-            });
-        });
+        var imagesList = $('#images .well form input').map(function(){
+            return {image: this.value};
+        }).get();
         var data = {
             _csrf : $('#csrf_token').val(),
             selector : $('#selector').val(),
