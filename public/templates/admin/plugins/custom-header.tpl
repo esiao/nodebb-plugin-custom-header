@@ -2,7 +2,7 @@
 <hr />
 
 <div class="bg-primary alert">
-    <p>This plugin allows you to set a list of images that will be displayed randomly on your site as backgrounds. The first purpose is to create custom header banners but you can target anything and do as you want.</p>
+    <p>This plugin allows you to set a list of images that will be displayed randomly with a nice crossfade effect on your forum as backgrounds. The first purpose is to create custom header banners but you can target anything and do as you want.</p>
 </div>
 
 <div id="custom_header">

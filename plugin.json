@@ -1,7 +1,7 @@
 {
 	"id": "nodebb-plugin-custom-header",
 	"name": "NodeBB Custom Header",
-	"description": "Allow admins to set a group of custom images to use in a zone on their forum, which will be randomly displayed",
+	"description": "Allow admins to set a group of custom images which will be randomly displayed on their forum",
 	"url": "https://github.com/esiao/nodebb-plugin-custom-header",
 	"library": "./library.js",
     	"templates": "./public/templates",
