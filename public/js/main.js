@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	var images = [],
-	header;
+	initialize = true;
 
 	$(window).on('action:ajaxify.end',displayHeader);
 
@@ -15,31 +15,35 @@
         			images.push(data.image);
         		});
         		if (images.length > 0 && data.selector.length > 0) {
-	        		randomImage();
 	        		displayImage(data.selector);        			
         		}
 	}
 
-	function randomImage() {
-		var limit = images.length;
-		header = images[Math.floor(Math.random()*limit)];
-	}
-
 	function displayImage(selector) {
-		var bg = $(selector),
+		var limit = images.length,
+		header = 'url('+images[Math.floor(Math.random()*limit)]+')',
+		bg = $(selector),
 		old = bg.css('background-image');
-		header = 'url('+header+')';
 
 		if (old !== header) {
+			if (initialize) {
+				var color = bg.css('background-color');
+				old = '';
+			}  else {
+				color = '';
+			}
 			$('<div>').addClass('crossfade').prependTo(bg).css({
 				'display': 'block',
 				'width': '100%',
 				'height': '100%',
 				'position': 'absolute',
 				'top': '0',
+				'background-color':color,
 				'background-image':old
 			}).fadeOut(1000);
+
 			bg.css('background-image',header);
 		}
+		initialize = false;
 	}
 }());
