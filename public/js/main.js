@@ -26,21 +26,21 @@
 		old = bg.css('background-image');
 
 		if (old !== header) {
+
 			if (initialize) {
 				var color = bg.css('background-color');
-				old = '';
+				$('<div>').addClass('crossfade').prependTo(bg).css({
+					'display': 'block',
+					'width': '100%',
+					'height': '100%',
+					'position': 'absolute',
+					'top': '0',
+					'background-color':color
+				}).fadeOut(1000);
 			}  else {
-				color = '';
+				$('.crossfade').show().css({'background-color':'','background-image':old}).fadeOut(1000);
 			}
-			$('<div>').addClass('crossfade').prependTo(bg).css({
-				'display': 'block',
-				'width': '100%',
-				'height': '100%',
-				'position': 'absolute',
-				'top': '0',
-				'background-color':color,
-				'background-image':old
-			}).fadeOut(1000);
+
 
 			bg.css('background-image',header);
 		}
