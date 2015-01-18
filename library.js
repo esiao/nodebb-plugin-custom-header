@@ -3,13 +3,13 @@
 var 	db = module.parent.require('./database'),
 	customHeader = {};
 
-customHeader.init = function (app, middleware, controllers, callback) {
+customHeader.init = function (params, callback) {
 
-	app.get('/admin/plugins/custom-header', middleware.admin.buildHeader, renderAdmin);
-	app.get('/api/admin/plugins/custom-header', renderAdmin);
-	app.get('/api/plugins/custom-header', renderFront);
+	params.router.get('/admin/plugins/custom-header', params.middleware.admin.buildHeader, renderAdmin);
+	params.router.get('/api/admin/plugins/custom-header', renderAdmin);
+	params.router.get('/api/plugins/custom-header', renderFront);
 
-	app.post('/api/admin/plugins/custom-header/save', save);
+	params.router.post('/api/admin/plugins/custom-header/save', save);
 
 	callback();
 };

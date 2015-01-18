@@ -3,6 +3,9 @@
 	"name": "NodeBB Custom Header",
 	"description": "Allow admins to set a group of custom images which will be randomly displayed on their forum",
 	"url": "https://github.com/esiao/nodebb-plugin-custom-header",
+	"nbbpm": {
+		"compatibility": "^0.5.0"
+	},
 	"library": "./library.js",
     	"templates": "./public/templates",
 	"hooks": [
